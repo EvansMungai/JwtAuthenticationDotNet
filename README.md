@@ -16,7 +16,7 @@ A minimal ASP.NET Core API demonstrating JWT authentication and role-based autho
 
 ### Prerequisites
 
-- [.NET 7 SDK](https://dotnet.microsoft.com/download/dotnet/7.0)
+- [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 - IDE (Visual Studio 2022, VS Code, JetBrains Rider)
 - (Optional) SQLite CLI if you switch from In-Memory to SQLite
 
@@ -40,9 +40,10 @@ A minimal ASP.NET Core API demonstrating JWT authentication and role-based autho
    }
 3. **Run the Application**
 
-    ```bash
-    dotnet run
-  The API will be available at https://localhost:{port}.
+       ```bash
+       dotnet run
+   
+    The API will be available at https://localhost:{port}.
   
 4. **Access Swagger UI**
     Navigate to https://localhost:{port}/swagger to explore and test the API.
