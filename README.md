@@ -43,6 +43,7 @@ A minimal ASP.NET Core API demonstrating JWT authentication and role-based autho
     ```bash
     dotnet run
   The API will be available at https://localhost:{port}.
+  
 4. **Access Swagger UI**
     Navigate to https://localhost:{port}/swagger to explore and test the API.
     
