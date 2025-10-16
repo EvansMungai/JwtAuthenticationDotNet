@@ -25,7 +25,7 @@ A minimal ASP.NET Core API demonstrating JWT authentication and role-based autho
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yourusername/JwtAuthenticationDotNet.git
+   git clone https://github.com/EvansMungai/JwtAuthenticationDotNet.git
    cd JwtAuthenticationDotNet
 2. **Configure Secrets**
    The app uses user secrets or appsettings.json for JWT configuration. Add your JWT settings:
