@@ -4,18 +4,31 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 
 namespace JwtAuthenticationDotNet.Extensions.RouteHandlers;
-
+/// <summary>
+/// Provides methods for registering API routes for both public and protected endpoints.
+/// </summary>
 public static class RouteBuilder
 {
+    /// <summary>
+    /// Registers all application routes including public and protected endpoints.
+    /// </summary>
+    /// <param name="app">The <see cref="WebApplication"/> instance used to map routes.</param>
     public static void MapAppRoutes(this WebApplication app)
     {
         MapPublicRoutes(app);
         MapProtectedRoutes(app);
     }
+
+    /// <summary>
+    /// Registers public routes such as registration and login.
+    /// These routes do not require authentication.
+    /// </summary>
+    /// <param name="webApplication"></param>
     private static void MapPublicRoutes(this WebApplication webApplication)
     {
         var app = webApplication.MapGroup("").WithTags("Authentication");
-        
+
+        // Register user and return JWT token on success
         app.MapPost("/register", async (
             UserManager<AppUser> userManager,
             TokenService tokenService,
@@ -36,7 +49,7 @@ public static class RouteBuilder
             return Results.Ok(new { token });
         });
 
-
+        // Login user and return JWT token
         app.MapPost("/login", async (
             UserManager<AppUser> userManager,
             TokenService tokenService,
@@ -52,6 +65,11 @@ public static class RouteBuilder
             return Results.Ok(new { token });
         });
     }
+
+    /// <summary>
+    /// Registers protected routes that require authentication or specific roles.
+    /// </summary>
+    /// <param name="webApplication">The <see cref="WebApplication"/> used to define the routes.</param>
     private static void MapProtectedRoutes(this WebApplication webApplication)
     {
         var app = webApplication.MapGroup("").WithTags("Protected Routes");

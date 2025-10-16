@@ -7,9 +7,16 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 namespace JwtAuthenticationDotNet.Extensions.ServiceHandlers;
-
+/// <summary>
+/// Provides extension methods to configure authentication and authorization services, including Identity and JWT Bearer authentication.
+/// </summary>
 public static class AuthenticationServiceRegistration
 {
+    /// <summary>
+    /// Configures Identity, JWT authentication, and authorization policies.
+    /// </summary>
+    /// <param name="services">The <see cref="IServiceCollection"/> to which services will be added.</param>
+    /// <param name="configuration">The application <see cref="IConfiguration"/> used to retrieve JWT settings.</param>
     public static void ConfigureAuthenticationServices(this IServiceCollection services, IConfiguration configuration)
     {
         // Identity
